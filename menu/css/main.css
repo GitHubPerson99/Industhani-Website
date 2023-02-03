@@ -1,0 +1,172 @@
+/* Copy */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+nav{
+    background-color: #383838;
+    position: relative;
+    z-index: 9;
+    height:80px;
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+label.logo{
+    color: white;
+    font-size:35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+a.active, a:hover{
+    background: #1d1d1d;
+    transition: .5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+@media (max-width: 1120px) {
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width: 1020px) {
+    .checkbtn{
+        display: block;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #5c5c5c;
+        top: 80px;
+        left: -100%;
+        transition: all .5s;
+        text-align: center;
+    }
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a {
+        font-size: 20px;
+
+    }
+    a:hover, a.active {
+        background: none;
+        color: #1d1d1d;
+    }
+    #check:checked ~ ul {
+        left: 0;
+    }
+    #check {
+        left: -100%;
+    }
+}
+@media (max-width: 450px) {
+    label.logo{
+        font-size: 25px;
+        padding-left: 20px;
+        padding-right: 50px;
+    }
+    .checkbtn {
+        font-size: 20px;
+        line-height: 80px;
+    }
+}
+@media (max-width: 330px) {
+    label.logo{
+        font-size: 25px;
+        padding: 0 10px;
+    }
+    .checkbtn {
+        font-size: 20px;
+    }
+}
+
+/* --------------------page header-------------------- */
+.page_header {
+    padding: 40px 120px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: url(../../img/home_page.jpeg);
+    height: auto;
+    max-width: 100vh;
+}
+.page_header_head {
+    font-size: 40px;
+    color: #f75d5d;
+    font-family: 'Tangerine', cursive!important;
+}
+
+
+/* Code */
+
+.body {
+    padding-top: 50px;
+}
+.container {
+    width: 100%;
+}
+.image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.ingredients {
+    padding: 27px 23px;
+    margin-bottom: 40px;
+    border-top: 2px solid rgb(0, 0, 0);
+    background-color: #535353;
+}
+input.check-box {
+    margin-right: 10px;
+}
+label.menu-items {
+    font-weight: 600;
+    margin-bottom: 17px;
+    font-family: josefin Sans;
+    /* color: #D4af37; */
+    color: #ff7300;
+    font-size: 20px;
+    padding: 12px 0px;
+}

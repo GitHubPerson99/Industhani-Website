@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap-iso.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/main.css">
+	<!-- Tangerine font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+
+	<style>
+		body {
+			background-color: #2b2b2b;
+			
+		}
+		h3, .h3 {
+			margin-top: 0px;
+			color: white;
+			text-transform: uppercase;
+			text-align: left;
+			font-family: "Raleway", sans-serif;
+			font-weight: 800;
+			font-size: 30px;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fa fa-bars"></i>
+		</label>
+		<label class = "logo">Industhan Foods</label>
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+			<li><a class="active" href="../menu/index.html">Menu</a></li>
+			<li><a href="../gallery/index.html">Gallery</a></li>
+			<li><a href="../reveiws/index.html">Reviews</a></li>
+			<li><a href="../contact/index.html">Contact</a></li>
+			<li><a href="../about/index.html">About</a></li>
+		</ul>
+	</nav>
+	<!-- Page Header -->
+	<section class="page_header">
+		<div class="container">
+			<h1 class="page_header_head">MENU</h1>
+		</div>
+	</section>
+
+	<div class="bootstrap-iso">
+		<div class="body">
+
+			<div class="main-wrapper">
+				
+				<section class="recipie-single single-recipe">
+					<div class="container">
+						<form  method="POST" enctype="multipart/form-data">
+							<div class="row">
+								
+								<div class="col-md-12">
+									<div class="col-md-4">
+										<img class="image" src="img/tandoori_chicken.jpeg"/>
+									</div>
+									<div class="col-md-4">
+										<img class="image" src="img/chicken_momo.jpeg"/>
+									</div>
+									<div class="col-md-4">
+										<img class="image" src="img/lamb-seekh-kabab.jpg"/>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="col-md-4">
+										<h3>Non-Veg Starter</h3>
+										<div class="ingredients">
+											<ul id="nonvegstarters1" name="nonvegstarters1">
+											
+											</ul>
+										</div>
+									</div>
+									
+									<div class="col-md-4" style="padding-top: 35px; padding-left: 0px;">
+										<div class="ingredients">
+											<ul id="nonvegstarters2" name="nonvegstarters2">
+
+											</ul>
+										</div>
+									</div>
+									
+									
+									<div class="col-md-4" style="padding-top: 35px; padding-left: 0px;">
+										<div class="ingredients">
+											<ul id="nonvegstarters3" name="nonvegstarters3">
+												
+											</ul>
+											
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="col-md-4">
+										<img class="image" src="img/samosa.jpg"/>
+									</div>
+									<div class="col-md-4">
+										<img class="image" src="img/dahi-vada.jpeg"/>
+									</div>
+									<div class="col-md-4">
+										<img class="image" src="img/paneer-65.jpg"/>
+									</div>
+								</div>
+								
+								<div class="col-md-12">
+									<div class="col-md-4">
+										<h3>Veg Starter</h3>
+										<div class="ingredients">
+											<ul id="vegstarters1" name="vegstarters1">
+											
+											</ul>
+										</div>
+									</div>
+									
+									<div class="col-md-4" style="padding-top: 35px; padding-left: 0px;">
+										<div class="ingredients">
+											<ul id="vegstarters2" name="vegstarters2">
+
+											</ul>
+										</div>
+									</div>
+									
+									
+									<div class="col-md-4" style="padding-top: 35px; padding-left: 0px;">
+										<div class="ingredients">
+											<ul id="vegstarters3" name="vegstarters3">
+												
+											</ul>
+											
+										</div>
+									</div>
+								</div>
+							<div>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+    <!-- Javascript -->
+	<script src="js/vendor/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.csv.js"></script>
+
+	</body>
+
+	<script>
+		$(document).ready(function(){
+			console.debug("asdfdsaf");
+			
+			$.get("menu.csv", function(data, status){
+			
+				const csvObject = $.csv.toArrays(data);
+
+				console.log("Data: " + csvObject[0][2]);
+				$('#nonvegstarters1').empty();
+				$('#nonvegstarters2').empty();
+				$('#nonvegstarters3').empty();
+				$('#vegstarters1').empty();
+				$('#vegstarters2').empty();
+				$('#vegstarters3').empty();
+				$('#mains').empty();
+				
+				var pos = 0;
+				csvObject.forEach(element => {
+					var i = 0;
+					element.forEach(element1 => {
+						console.log(element1);
+						i++;
+					});
+					// NON-VEG STARTERS
+					if(element[0] == "nonvegstarters1")
+					{
+						console.log(element[0]);
+						var i = 0;
+						element.forEach(element1 => {
+							if(i!=0)
+							{
+								var current = $('#nonvegstarters1').html();
+								$('#nonvegstarters1').html(current+ "<label class=\"menu-items\">"+ pos +".&nbsp;</label><label class=\"menu-items\">"+ element1+"</label><br>");
+							}
+							i++;
+							pos++;
+						});
+					}
+					if(element[0] == "nonvegstarters2")
+					{
+						pos--;
+						console.log(element[0]);
+						var i = 0;
+						element.forEach(element1 => {
+							if(i!=0)
+							{
+								var current = $('#nonvegstarters2').html();
+								$('#nonvegstarters2').html(current+ "<label class=\"menu-items\">"+ pos +".&nbsp;</label><label class=\"menu-items\">"+ element1+"</label><br>");
+							}
+							i++;
+							pos++;
+						});
+					}
+					if(element[0] == "nonvegstarters3")
+					{
+						pos--;
+						console.log(element[0]);
+						var i = 0;
+						element.forEach(element1 => {
+							if(i!=0)
+							{
+								var current = $('#nonvegstarters3').html();
+								$('#nonvegstarters3').html(current+ "<label class=\"menu-items\">"+ pos +".&nbsp;</label><label class=\"menu-items\">"+ element1+"</label><br>");
+							}
+							i++;
+							pos++;
+						});
+						pos=0;
+					}
+					
+					// VEG STARTERS
+					if(element[0] == "vegstarters1")
+					{
+						console.log(element[0]);
+						var i = 0;
+						element.forEach(element1 => {
+							if(i!=0)
+							{
+								var current = $('#vegstarters1').html();
+								$('#vegstarters1').html(current+ "<label class=\"menu-items\">"+ pos +".&nbsp;</label><label class=\"menu-items\">"+ element1+"</label><br>");
+							}
+							i++;
+							pos++;
+						});
+					}
+					if(element[0] == "vegstarters2")
+					{
+						pos--;
+						console.log(element[0]);
+						var i = 0;
+						element.forEach(element1 => {
+							if(i!=0)
+							{
+								var current = $('#vegstarters2').html();
+								$('#vegstarters2').html(current+ "<label class=\"menu-items\">"+ pos +".&nbsp;</label><label class=\"menu-items\">"+ element1+"</label><br>");
+							}
+							i++;
+							pos++;
+						});
+					}
+					if(element[0] == "vegstarters3")
+					{
+						pos--;
+						console.log(element[0]);
+						var i = 0;
+						element.forEach(element1 => {
+							if(i!=0)
+							{
+								var current = $('#vegstarters3').html();
+								$('#vegstarters3').html(current+ "<label class=\"menu-items\">"+ pos +".&nbsp;</label><label class=\"menu-items\">"+ element1+"</label><br>");
+							}
+							i++;
+							pos++;
+						});
+					}
+
+				});
+
+				
+				
+			});
+		});
+	</script>
+
+</html>

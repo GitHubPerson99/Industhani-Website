@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reviews</title>
+        <link href="../css/main.css" rel="stylesheet" />
+        <!-- FontAwesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Tangerine font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+        <style></style>
+    </head>
+    <body>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fa fa-bars"></i>
+            </label>
+            <label class = "logo">Industhan Foods</label>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+				<li><a href="../menu/index.html">Menu</a></li>
+                <li><a href="../gallery/index.html">Gallery</a></li>
+                <li><a class="active" href="index.html">Reviews</a></li>
+				<li><a href="../contact/index.html">Contact</a></li>
+				<li><a href="../about/index.html">About</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Page Header -->
+        <section class="page_header">
+            <div class="container">
+                <h1 class="page_header_head">Reviews</h1>
+            </div>
+        </section>
+
+        <div class="popup" id="popup_review">
+            <div class="overlay"></div>
+            <div class="content">
+                <button class="close-btn" onclick="togglePopup()">&times;</button>
+                <h1>Post A Review</h1>
+                <section class="post_review">
+                    <div class="column">
+                        <form class="post_review_form">
+        
+                            <input type="text" id="name" placeholder="Enter Your Name" name="name" required>
+                            <input type="email" id="email" placeholder="Enter Email Address" name="email&nbsp;address" required>
+                            <input type="text" id="location" placeholder="Enter Your County" name="phone&nbsp;number" required>
+                            <input type="text" id="phone" placeholder="Enter Phone Number (optional)" name="phone&nbsp;number">
+                            <textarea rows="4" id="message" placeholder="Message" name="comments,&nbsp;questions" required></textarea>
+                            <button type="submit" class="submit" onclick="postReview()">Post Message</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <button class="leave_review" onclick="togglePopup()">Leave a Review</button>
+
+        <script src="../js/reviews.js"></script>
+    </body>
+</html>
